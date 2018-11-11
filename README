@@ -1,4 +1,5 @@
 
+# A sample implementation of an app using serial_asyncio to dispatch messages coming from serial ports 
 
 to create a vitual env:
 
