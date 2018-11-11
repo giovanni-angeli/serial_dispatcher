@@ -1,0 +1,13 @@
+*.pyc
+*.egg-info
+
+*.log
+*.hex
+*.map
+*.cof
+*.o
+
+__pycache__/
+VENV/
+log/
+tmp/

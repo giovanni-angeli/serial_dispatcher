@@ -1,0 +1,10 @@
+
+
+to create a vitual env:
+
+    $ python make.py make_venv
+    
+to run test in the vitual env:
+    
+    $ python make.py make_venv
+    
