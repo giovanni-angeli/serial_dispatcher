@@ -1,6 +1,11 @@
 
 # A sample implementation of an app using serial_asyncio to dispatch messages coming from serial ports 
 
+pre-requisites:
+
+   $ sudo apt install virtualenv
+   $ sudo apt install socat
+
 to create a vitual env:
 
     $ python make.py make_venv
