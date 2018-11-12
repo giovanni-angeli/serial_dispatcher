@@ -7,5 +7,5 @@ to create a vitual env:
     
 to run test in the vitual env:
     
-    $ python make.py make_venv
+    $ python make.py run_test
     
