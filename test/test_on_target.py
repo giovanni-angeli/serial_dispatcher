@@ -7,8 +7,9 @@ import logging
 import traceback
 import asyncio
 
-from dispatcher import Dispatcher
+from serial_dispatcher.dispatcher import Dispatcher
 
+TIME_TO_LIVE = 5
 
 def setup_virtual_serial_ports():
 
@@ -38,7 +39,7 @@ def teardown_virtual_serial_ports():
     os.system('killall socat')
 
 
-async def main():
+async def main(time_to_live):
 
     ((vsp_0_IN, vsp_0_OUT), (vsp_1_IN, vsp_1_OUT)) = setup_virtual_serial_ports()
     time.sleep(.1)
@@ -79,6 +80,9 @@ async def main():
 
     t0 = time.time()
     while 1:
+        
+        if time.time() - t0 > time_to_live:
+            break
 
         logging.warning("Running...")
         await asyncio.sleep(1)
@@ -91,6 +95,13 @@ async def main():
 
     teardown_virtual_serial_ports()
 
-if __name__ == '__main__':
 
-    asyncio.get_event_loop().run_until_complete(main())
+def test():
+    loop = asyncio.get_event_loop()
+    loop.call_later(2, loop.stop)
+    try:
+        loop.run_until_complete(main(TIME_TO_LIVE))
+    except:
+        logging.warning(traceback.format_exc())
+if __name__ == '__main__':
+    test()

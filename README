@@ -1,11 +1,10 @@
-
 # A sample implementation of an app using serial_asyncio to dispatch messages coming from serial ports 
 
-to create a vitual env:
+there is a make.py script to be used to build, install and run tests.
 
-    $ python make.py make_venv
+please try:
+
+    $ python3 make.py --help
     
-to run test in the vitual env:
-    
-    $ python make.py run_test
-    
+and read the code inside make.py
+

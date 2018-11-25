@@ -1,0 +1,38 @@
+
+here we have different kinds of test scripts:
+
+    test_on_builder
+
+        Tests that have to be run on the build server only, using a py virtenv.
+        These are good for regression/unit-testing, in session emulating the HW interfaces specific to the target system.
+        These tests have to be run periodically in an automated env.
+
+    test_on_develop
+        
+        Tests that have to be run on the development machine only, using a py virtenv.
+        These are good for unit-testing, or in sessions emulating the HW interfaces specific to the target system.
+        These tests are what a deveolper NEEDs to run while acting on the code.
+        Tipical development session cycle:
+            
+            1. if tired: break
+            2. add tests to test_on_develop
+            3. edit code 
+            4. pylint code
+            5. run test_on_develop
+            6. analyze the output
+            7. goto 1.
+
+    test_on_host
+    
+        Tests that have to be run on a host system (e.g. development machine or build 
+            server) communicating to a target where the package has been installed.
+
+    test_on_target
+
+        Tests that have to be run directly on a taget system system. These should be installed alongside the package.
+
+    These four categories are not disjoined, e.g. some tests will be good to be run on build server and development machine.
+    So for those tests, the implementation have to be placed in common files and then imported from where it is needed (as 
+    in ./common.py example) following DRY principle.
+    Here we can add subdirectories, if needed.
+    

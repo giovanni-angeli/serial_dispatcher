@@ -7,7 +7,9 @@
 *.cof
 *.o
 
+*.egg-info
+
+.pytest_cache/
 __pycache__/
-VENV/
 log/
 tmp/
