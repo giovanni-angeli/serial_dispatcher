@@ -6,5 +6,5 @@ please try:
 
     $ python3 make.py --help
     
-and read the code inside make.py
+and read the code inside make.py; it can be used as a guide on how to interact with the application in development.
 
